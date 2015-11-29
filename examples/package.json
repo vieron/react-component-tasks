@@ -1,0 +1,20 @@
+{
+  "name": "react-component-tasks-examples",
+  "version": "0.0.0",
+  "description": "Examples using react-component-tasks",
+  "main": "index.js",
+  "scripts": {
+    "start": "rct webpack-dev",
+    "dist": "rct webpack-dist",
+    "deploy": "rct webpack-demosite && rct github-deploy"
+  },
+  "author": "vieron",
+  "peerDependencies": {
+    "react": "^0.14.3"
+  },
+  "devDependencies": {
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  },
+  "license": "MIT"
+}

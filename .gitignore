@@ -1,0 +1,6 @@
+node_modules/
+npm-debug.log
+gh-pages/
+dist/
+
+.DS_Store
