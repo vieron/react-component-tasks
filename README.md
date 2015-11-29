@@ -83,3 +83,15 @@ Then, from `examples/` you can run with `npm run <task>` all the available task 
 ## License
 
 Distributed under the MIT license.
+
+## TO-DO
+
+- add remaining tasks:
+	- lint
+	- es5
+	- documentation
+	- test
+	- tdd
+	- link (something to automate linking projects for local development)
+- allow any webpack config to be overrided
+- default styling for demo page
