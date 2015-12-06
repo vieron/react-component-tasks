@@ -6,7 +6,9 @@
   "scripts": {
     "start": "rct webpack-dev",
     "dist": "rct webpack-dist",
-    "deploy": "rct webpack-demosite && rct github-deploy"
+    "deploy": "rct webpack-demosite && rct github-deploy --dist ./gh-pages",
+    "lint": "rct eslint",
+    "es5": "rct babel-es5"
   },
   "author": "vieron",
   "peerDependencies": {

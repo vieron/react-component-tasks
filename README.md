@@ -83,6 +83,10 @@ There are two kinds of configurations in **react-component-tasks**:
 
 ### webpack-demosite
 
+### babel-es5
+
+### eslint
+
 ### github-deploy
 
 - `-d, --dist <dist>` base directory for all source files. Default: `'./gh-pages'`.
@@ -121,8 +125,6 @@ Distributed under the MIT license.
 ## TO-DO
 
 - add remaining tasks:
-	- lint
-	- es5
 	- test
 	- documentation
 	- tdd
