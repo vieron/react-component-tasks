@@ -9,27 +9,12 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var Clean = require('clean-webpack-plugin');
 
-
-var ROOT_PATH = process.cwd();
-var pkg = JSON.parse(require('fs').readFileSync(path.join(ROOT_PATH, 'package.json')));
-var defaults = function(options) {
-    return merge({
-        es6: true,
-        filename: utils.npm.getUnscopedName(pkg.name),
-        library: utils.npm.getCapitalizedName(pkg.name),
-        path: {
-            dist: path.join(ROOT_PATH, 'dist'),
-            src: path.join(ROOT_PATH, 'src'),
-            demo: path.join(ROOT_PATH, 'demo'),
-            ghpages: path.join(ROOT_PATH, 'gh-pages'),
-            tests: path.join(ROOT_PATH, 'tests')
-        }
-    }, options);
-};
-
+var defaults = require('./config/defaults');
+var pkg = JSON.parse(require('fs').readFileSync(
+    path.join(process.cwd(), 'package.json')));
 
 var baseConfig = function(options) {
-    options = defaults(options);
+    options = defaults.merge(options);
 
     return {
         module: {
@@ -46,11 +31,7 @@ var baseConfig = function(options) {
                     test: options.es6 ? /\.jsx?$/ : /\.jsx$/,
                     loader: 'babel-loader',
                     exclude: /node_modules|bower_components/,
-                    query: {
-                      presets: ['es2015', 'stage-1', 'react'],
-                      // See http://babeljs.io/docs/usage/options/
-                      plugins: ['transform-runtime']
-                    }
+                    query: pkg.babel
                 },
                 {
                     test: /\.scss$/,
@@ -137,7 +118,7 @@ var baseConfig = function(options) {
 }
 
 var devConfig = function(options) {
-    options = defaults(options);
+    options = defaults.merge(options);
 
     return webpackMerge(baseConfig(options), {
         devtool: 'eval-source-map',
@@ -162,7 +143,7 @@ var devConfig = function(options) {
 };
 
 var distConfig = function(options) {
-    options = defaults(options);
+    options = defaults.merge(options);
 
     return webpackMerge(baseConfig(options), {
         devtool: 'source-map',
@@ -193,7 +174,7 @@ var distConfig = function(options) {
 }
 
 var demositeConfig = function(options) {
-    options = defaults(options);
+    options = defaults.merge(options);
 
     return webpackMerge(baseConfig(options), {
         devtool: 'eval-source-map',

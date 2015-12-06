@@ -16,5 +16,9 @@
     "react": "^0.14.3",
     "react-dom": "^0.14.3"
   },
+  "babel": {
+    "presets": ["es2015", "stage-1", "react"],
+    "plugins": ["transform-runtime"]
+  },
   "license": "MIT"
 }

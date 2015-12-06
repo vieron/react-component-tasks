@@ -2,7 +2,7 @@
 
 # react-component-tasks
 
-This component provides a simple interface for authoring and distributing React Components. It takes advantage of some conventions that allow you to build your component with almost zero configuration.
+This component provides a simple cli interface for authoring and distributing React Components. It takes advantage of some conventions that allow you to build your component with almost zero configuration.
 
 ## Features
 
@@ -43,6 +43,8 @@ This component provides a simple interface for authoring and distributing React 
 
 3. Add the tasks you need to the `scripts` attribute of your `package.json`.
 
+	Usage: `rct <task-name> [opts] [-- suboptions]`
+
 	```json
 	"scripts": {
 	    "start": "rct webpack-dev",
@@ -54,7 +56,26 @@ This component provides a simple interface for authoring and distributing React 
 `rtc` is a shortcut for `react-component-task` cli.
 
 
-## CLI
+### Configuration
+
+There are two kinds of configurations in **react-component-tasks**:
+
+- **Project configuration**
+
+	General configuration for the whole project, mainly paths, and names. (Defaults)[./src/config/defaults.js] can be overriden adding the proper params after the task name.
+
+		$ rct webpack-dev --path.src '~/src' --path.dist '~/dist'
+
+- **Task configuration**
+
+	Each task might also have its own configuration. Tasks can define a set of defaults based on the current Project configuration. See [here](./src/tasks/eslint.js)
+
+	This defaults can also be overriden just passing the proper params after `--`.
+
+		$ rct webpack-dev --path.src '~/src' -- --bail
+
+
+## Available Tasks
 
 ### webpack-dev
 
@@ -68,16 +89,29 @@ This component provides a simple interface for authoring and distributing React 
 - `-s, --src <src>` pattern used to select which files should be published.
 
 
-## Running this project in locally
+## Running the project locally
 
 Clone the project and from the root of the repo run the following commands:
 
 	$ npm install
 	$ npm link
 	$ cd examples/
+	$ npm install
 	$ npm link react-component-tasks
 
 Then, from `examples/` you can run with `npm run <task>` all the available task in the `scripts` attribute of `examples/package.json`.
+
+### Debugging
+
+With [iron-node](http://s-a.github.io/iron-node/)
+
+	$ iron-node ./node_modules/react-component-tasks/src/cli.js babel-es5
+
+With [node-inspector](https://github.com/node-inspector/node-inspector)
+
+	$ node-debug ./node_modules/react-component-tasks/src/cli.js babel-es5
+
+Remember to replace `babel-es5` in the previous commands with the task you want to debug.
 
 
 ## License
@@ -89,9 +123,13 @@ Distributed under the MIT license.
 - add remaining tasks:
 	- lint
 	- es5
-	- documentation
 	- test
+	- documentation
 	- tdd
 	- link (something to automate linking projects for local development)
 - allow any webpack config to be overrided
 - default styling for demo page
+- update documentation
+	- optional .eslintrc
+	- babel attr in package.json
+	- .gitignore

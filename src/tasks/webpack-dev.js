@@ -1,17 +1,23 @@
 var spawn = require('child_process').spawn;
 var path = require('path');
 
-function webpackDev() {
-    process.env.WEBPACK_CONFIG_ENV = 'dev';
+function webpackDev(params) {
+    var command = path.join(__dirname, '../../node_modules/webpack-dev-server/bin/webpack-dev-server.js');
+    var args = params._spawn;
+    console.log('$ %s %s', path.basename(command), args.join(' '));
 
-    spawn(
-        path.join(__dirname, '../../node_modules/webpack-dev-server/bin/webpack-dev-server.js'),
-        ['--config', './webpack.config.js'],
-        {stdio: "inherit"});
+    process.env.WEBPACK_CONFIG_ENV = 'dev';
+    spawn(command, args, {stdio: 'inherit'});
 }
 
 webpackDev._name = 'webpack-dev';
 webpackDev._description = 'dev task desciption';
+webpackDev._defaults = function(config) {
+    return {
+        'config': config.path.webpackConfig
+    };
+};
+
 
 module.exports = webpackDev;
 
