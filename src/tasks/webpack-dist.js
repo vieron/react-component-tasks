@@ -10,7 +10,6 @@ function webpackDist(params) {
     spawn(command, args, {stdio: 'inherit'});
 }
 
-webpackDist._name = 'webpack-dist';
 webpackDist._description = 'dist task desciption';
 webpackDist._defaults = function(config) {
     return {

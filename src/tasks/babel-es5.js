@@ -10,7 +10,6 @@ function babelES5(params) {
     spawn(command, args, {stdio: 'inherit'});
 }
 
-babelES5._name = 'babel-es5';
 babelES5._description = 'transform code to es5';
 babelES5._defaults = function(config) {
     return {

@@ -10,7 +10,6 @@ function webpackDemoSite(params) {
     spawn(command, args, {stdio: 'inherit'});
 }
 
-webpackDemoSite._name = 'webpack-demosite';
 webpackDemoSite._description = 'demosite task desciption';
 webpackDemoSite.defaults = function(config) {
     return {

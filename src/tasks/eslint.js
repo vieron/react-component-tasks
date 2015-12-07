@@ -12,7 +12,6 @@ function eslint(params) {
     spawn(command, args, {stdio: 'inherit'});
 }
 
-eslint._name = 'eslint';
 eslint._description = 'lint JavaScript code';
 eslint._defaults = function(config) {
     return {

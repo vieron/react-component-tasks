@@ -9,7 +9,6 @@ function karmaTest(params) {
     spawn(command, args, {stdio: 'inherit'});
 }
 
-karmaTest._name = 'karma-tdd';
 karmaTest._description = 'live tests with karma';
 karmaTest._defaults = function(config) {
     return {

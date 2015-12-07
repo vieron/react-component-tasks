@@ -10,7 +10,6 @@ function webpackDev(params) {
     spawn(command, args, {stdio: 'inherit'});
 }
 
-webpackDev._name = 'webpack-dev';
 webpackDev._description = 'dev task desciption';
 webpackDev._defaults = function(config) {
     return {

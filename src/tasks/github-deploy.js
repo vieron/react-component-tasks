@@ -12,7 +12,6 @@ function ghPages(params) {
     spawn(command, args, {stdio: 'inherit'});
 }
 
-ghPages._name = 'github-deploy';
 ghPages._description = 'deploy to Github Pages';
 ghPages._defaults = function(config) {
     return {

@@ -41,9 +41,9 @@ var argv = program
     .usage('Usage: $0 <task> [options] -- [taskoptions]')
     .demand(1);
 
-Object.keys(tasks).forEach(function(taskKey) {
-    var task = tasks[taskKey];
-    argv = argv.command(task._name, task._description, function(yargs, args) {
+Object.keys(tasks).forEach(function(taskName) {
+    var task = tasks[taskName];
+    argv = argv.command(taskName, task._description, function(yargs, args) {
         performTask(args, yargs.parse(args._.slice(1)));
     });
 });
