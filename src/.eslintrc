@@ -2,7 +2,7 @@
 // http://eslint.org/blog/2015/04/eslint-0.20.0-released
 
 {
-
+    "parser": "babel-eslint",
     "rules": {
 
         // Rules are documented at http://eslint.org/docs/rules
@@ -177,6 +177,7 @@
         "padded-blocks": 0,                             // enforce padding within blocks ***
         "quote-props": 0,                               // require quotes around object literal property names ***
         "quotes": [2, "single"],                        // specify whether backticks, double or single quotes should be used ***
+        "jsx-quotes": [2, "prefer-double"],
         "semi": 0,                                      // require or disallow use of semicolons instead of ASI ***
         "semi-spacing": 0,                              // enforce spacing before and after semicolons ***
         "sort-vars": 0,                                 // sort variables within the same declaration block ***
@@ -213,7 +214,42 @@
         "max-params": 0,                                // limits the number of parameters that can be used in the function declaration ***
         "max-statements": 0,                            // specify the maximum number of statement allowed in a function ***
         "no-bitwise": 0,                                // disallow use of bitwise operators
-        "no-plusplus": 0                                // disallow use of unary operators, ++ and --
+        "no-plusplus": 0,                                // disallow use of unary operators, ++ and --
+
+        // ESLint-plugin-React
+        // See https://github.com/yannickcr/eslint-plugin-react
+
+        "react/display-name": 0,
+        "react/forbid-prop-types": 1,
+        "react/jsx-boolean-value": 1,
+        "react/jsx-closing-bracket-location": 1,
+        "react/jsx-curly-spacing": 1,
+        "react/jsx-handler-names": 1,
+        "react/jsx-indent-props": 1,
+        "react/jsx-key": 1,
+        "react/jsx-max-props-per-line": 1,
+        "react/jsx-no-bind": 1,
+        "react/jsx-no-duplicate-props": 1,
+        "react/jsx-no-literals": 1,
+        "react/jsx-no-undef": 1,
+        "react/jsx-pascal-case": 1,
+        "react/jsx-sort-prop-types": 0,
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1,
+        "react/no-danger": 1,
+        "react/no-did-mount-set-state": 1,
+        "react/no-did-update-set-state": 1,
+        "react/no-direct-mutation-state": 1,
+        "react/no-multi-comp": 0,
+        "react/no-set-state": 1,
+        "react/no-unknown-property": 1,
+        "react/prefer-es6-class": 1,
+        "react/prop-types": 1,
+        "react/react-in-jsx-scope": 1,
+        "react/require-extension": 1,
+        "react/self-closing-comp": 1,
+        "react/sort-comp": 1,
+        "react/wrap-multilines": 1
 
     },
 
@@ -269,9 +305,9 @@
         // If you are using global variables inside of a file then it's worthwhile to define those globals so that ESLint will not warn about their usage.
     },
 
-
+    // ESLint supports the use of third-party plugins. Before using the plugin you have to install it using npm.
     "plugins": [
-        // ESLint supports the use of third-party plugins. Before using the plugin you have to install it using npm.
+        "react"
     ]
 
 }
