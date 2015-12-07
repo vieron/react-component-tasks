@@ -128,13 +128,18 @@ Distributed under the MIT license.
 
 ## TO-DO
 
+- rebump config
+	- rename defaults to project
+	- ensure naming is consistent
+	- move configs to /config (webpack, karma, eslint...)
 - move webpack config to a separate npm module
 - allow webpack config to be overriden, now only `getConfig`
 - util to call spawn an log full command
 - add remaining tasks:
+	- publishing
 	- test
 		- add https://www.npmjs.com/package/babel-plugin-import-asserts for tests
-		- add https://github.com/jhnns/rewire for tests
+		- add https://github.com/jhnns/rewire  (karma-rewire, webpack-rewire?)
 	- documentation
 	- tdd
 	- link (something to automate linking projects for local development)
@@ -144,4 +149,3 @@ Distributed under the MIT license.
 	- optional .eslintrc
 	- babel attr in package.json
 	- .gitignore
-	- propose moving configs to /config (webpack, karma, eslint...)
