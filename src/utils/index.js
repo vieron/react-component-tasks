@@ -20,7 +20,7 @@ module.exports = {
         }
 
         var output = [];
-        Object.keys(object).forEach(function(prop) {
+        Object.keys(object).sort().forEach(function(prop) {
             var value = object[prop];
             if (value === undefined) { return; }
             value instanceof Array || (value = [value]);

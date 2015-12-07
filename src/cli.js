@@ -29,7 +29,7 @@ function performTask(args, subargs) {
 
 var configOptions = ['es6', 'filename', 'library', 'path.dist', 'path.es5',
                      'path.src', 'path.demo', 'path.ghpages', 'path.tests',
-                     'path.webpackConfig', 'path.eslintConfig'];
+                     'path.webpackConfig', 'path.eslintConfig', 'path.karmaConfig'];
 var options = {};
 configOptions.forEach(function(optKey) {
     options[optKey] = {

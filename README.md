@@ -1,4 +1,4 @@
-**WORK IN PROGRESS**
+**WORK IN PROGRESS. NOT RELEASED YET**
 
 # react-component-tasks
 
@@ -87,6 +87,10 @@ There are two kinds of configurations in **react-component-tasks**:
 
 ### eslint
 
+### karma-test
+
+### karma-tdd
+
 ### github-deploy
 
 - `-d, --dist <dist>` base directory for all source files. Default: `'./gh-pages'`.
@@ -124,8 +128,13 @@ Distributed under the MIT license.
 
 ## TO-DO
 
+- move webpack config to a separate npm module
+- allow webpack config to be overriden, now only `getConfig`
+- util to call spawn an log full command
 - add remaining tasks:
 	- test
+		- add https://www.npmjs.com/package/babel-plugin-import-asserts for tests
+		- add https://github.com/jhnns/rewire for tests
 	- documentation
 	- tdd
 	- link (something to automate linking projects for local development)
@@ -135,3 +144,4 @@ Distributed under the MIT license.
 	- optional .eslintrc
 	- babel attr in package.json
 	- .gitignore
+	- propose moving configs to /config (webpack, karma, eslint...)

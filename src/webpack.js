@@ -17,12 +17,16 @@ var baseConfig = function(options) {
     options = defaults.merge(options);
 
     return {
+        output: {
+            filename: options.filename + '.js'
+        },
+
         module: {
             preLoaders: [
                 {
                     test: /\.jsx?$/,
                     loader: 'eslint-loader',
-                    exclude: /node_modules|bower_components/
+                    exclude: [/node_modules/, /bower_components/]
                 }
             ],
 
@@ -30,7 +34,7 @@ var baseConfig = function(options) {
                 {
                     test: options.es6 ? /\.jsx?$/ : /\.jsx$/,
                     loader: 'babel-loader',
-                    exclude: /node_modules|bower_components/,
+                    exclude: [/node_modules/, /bower_components/],
                     query: pkg.babel
                 },
                 {
@@ -79,6 +83,10 @@ var baseConfig = function(options) {
                           pngquant: { quality: '65-90', speed: 4 }
                         })
                     ]
+                },
+                {
+                    test: /\.json$/,
+                    loader: 'json-loader'
                 }
             ]
         },
@@ -123,6 +131,7 @@ var devConfig = function(options) {
     return webpackMerge(baseConfig(options), {
         devtool: 'eval-source-map',
         entry: options.path.demo,
+        output: undefined,
         plugins: [
             new ExtractTextPlugin('[name].css', {disable: false}),
             new HtmlWebpackPlugin({
@@ -150,7 +159,6 @@ var distConfig = function(options) {
         entry: options.path.src,
         output: {
             path: options.path.dist,
-            filename: options.filename + '.js',
             libraryTarget: 'umd',
             library: options.library
         },
@@ -169,6 +177,43 @@ var distConfig = function(options) {
                     warnings: false
                 }
             })
+        ]
+    });
+}
+
+var testConfig = function(options) {
+    options = defaults.merge(options);
+
+    return webpackMerge(baseConfig(options), {
+        devtool: 'inline-source-map',
+        entry: undefined,
+        resolve: {
+            // let react, react-dom... to be resolved from the package's
+            // node_modules folder
+            fallback: [
+                path.join(process.cwd(), '/node_modules')
+            ],
+
+            // enzyme related: link sinon to the dist version
+            alias: {
+                'sinon': 'sinon/pkg/sinon'
+            }
+        },
+        // enzyme related
+        module: {
+            // see https://github.com/webpack/webpack/issues/304
+            noParse: [
+                /node_modules\/sinon\//,
+            ]
+        },
+        // enzyme related
+        externals: {
+            'jsdom': 'window',
+            'cheerio': 'window',
+            'react/lib/ExecutionEnvironment': true
+        },
+        plugins: [
+            new ExtractTextPlugin('[name].css', {disable: false}),
         ]
     });
 }
@@ -223,11 +268,13 @@ var registry = {
     base: baseConfig,
     dev: devConfig,
     dist: distConfig,
-    demosite: demositeConfig
+    demosite: demositeConfig,
+    test: testConfig
 };
 
 
 module.exports = {
+    registry: registry,
     getConfig: function(options) {
         options || (options = {});
         var env = options.env || process.env.WEBPACK_CONFIG_ENV;

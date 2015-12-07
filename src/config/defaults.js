@@ -17,6 +17,7 @@ var defaults = {
         demo: path.join(ROOT_PATH, 'demo'),
         ghpages: path.join(ROOT_PATH, 'gh-pages'),
         tests: path.join(ROOT_PATH, 'tests'),
+        karmaConfig: path.join(ROOT_PATH, 'karma.config.js'),
         webpackConfig: path.join(ROOT_PATH, 'webpack.config.js'),
         eslintConfig: utils.eslint.getConfigPath()
     }
