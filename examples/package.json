@@ -8,7 +8,9 @@
     "dist": "rct webpack-dist",
     "deploy": "rct webpack-demosite && rct github-deploy --dist ./gh-pages",
     "lint": "rct eslint",
-    "es5": "rct babel-es5"
+    "es5": "rct babel-es5",
+    "test": "rct karma-test",
+    "tdd": "rct karma-tdd"
   },
   "author": "vieron",
   "peerDependencies": {
