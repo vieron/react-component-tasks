@@ -18,7 +18,7 @@ describe('<Tabs />', () => {
 
 describe('<TabsNav />', () => {
     it('should render the component', () => {
-        const wrapper = shallow(<TabsNav />);
+        const wrapper = shallow(<TabsNav items={['Pane 1', 'Pane 2']} />);
         expect(wrapper.find('a')).to.have.length(2);
     })
-})
+});
