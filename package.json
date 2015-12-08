@@ -1,7 +1,11 @@
 {
   "name": "react-component-tasks",
-  "version": "0.0.0",
-  "description": "",
+  "version": "0.0.1",
+  "description": "CLI tools for authoring and distributing React Components super-faster, with almost zero configuration",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vieron/react-component-tasks.git"
+  },
   "main": "src/index.js",
   "bin": {
     "rct": "src/cli.js",
