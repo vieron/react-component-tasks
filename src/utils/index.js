@@ -5,14 +5,14 @@ module.exports = {
     objectToSpawnArgs: function(object) {
         function option(prop, value) {
             var params = [];
-            if (prop.length === 1){
+            if (prop.length === 1) {
                 params.push('-' + prop);
-                if (value !== true){
+                if (value !== true) {
                     params.push(value);
                 }
             } else {
                 prop.trim().length && params.push('--' + prop);
-                if (value !== true){
+                if (value !== true) {
                     params.push(value);
                 }
             }

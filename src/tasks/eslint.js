@@ -1,6 +1,4 @@
 var utils = require('../utils/index');
-var merge = require('lodash.merge');
-var omit = require('lodash.omit');
 var path = require('path');
 var spawn = require('child_process').spawn;
 
