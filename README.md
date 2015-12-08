@@ -77,6 +77,8 @@ There are two kinds of configurations in **react-component-tasks**:
 
 ## Available Tasks
 
+TODO: document all tasks
+
 ### webpack-dev
 
 ### webpack-dist
@@ -90,6 +92,10 @@ There are two kinds of configurations in **react-component-tasks**:
 ### karma-test
 
 ### karma-tdd
+
+### react-docgen
+
+Uses [react-docgen-readme](https://github.com/vieron/react-docgen-readme).
 
 ### github-deploy
 
@@ -149,3 +155,5 @@ Distributed under the MIT license.
 	- optional .eslintrc
 	- babel attr in package.json
 	- .gitignore
+- component-generator
+- move cli.js to bin/

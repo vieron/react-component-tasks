@@ -10,7 +10,8 @@
     "lint": "rct eslint",
     "es5": "rct babel-es5",
     "test": "rct karma-test",
-    "tdd": "rct karma-tdd"
+    "tdd": "rct karma-tdd",
+    "docs": "rct react-docgen"
   },
   "author": "vieron",
   "peerDependencies": {

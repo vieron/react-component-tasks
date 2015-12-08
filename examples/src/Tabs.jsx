@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 
 
+/**
+ * TabsNav
+ */
 export class TabsNav extends Component {
 
     static propTypes = {
@@ -17,10 +20,15 @@ export class TabsNav extends Component {
 }
 
 
+/**
+ * Tabs
+ */
 export default class Tabs extends Component {
 
     static propTypes = {
+        /** The index of the active pane */
         current: React.PropTypes.number,
+        /** An array containing all the panes */
         panes: React.PropTypes.arrayOf(React.PropTypes.object)
     }
 
